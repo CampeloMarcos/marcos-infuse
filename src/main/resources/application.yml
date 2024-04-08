@@ -1,0 +1,49 @@
+spring:  
+  mvc:
+    format:
+      date: dd-MM-yyyy
+      date-time: dd-MM-yyyy HH:mm:ss
+      time: HH:mm:ss
+# ===============================
+# = DATASOURCE
+# ===============================      
+  datasource:
+    url: jdbc:mysql://localhost:3306/teste_marcos_campelo_infuse?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver 
+    testWhileIdle: true
+    validationQuery: SELECT 1
+# ===============================
+# = FLYWAY
+# ===============================      
+  flyway:
+    enabled: true
+    #baselineOnMigrate: true
+    validateOnMigrate: true
+# ===============================
+# = JPA / HIBERNATE
+# ===============================
+  jpa:
+    database-plataform: org.hibernate.dialect.MySQLDialect
+    generate-ddl: false
+    show-sql: true
+    properties.hibernate.format_sql: true
+    hibernate.ddl-auto: none
+# ===============================
+# = SERVER
+# ===============================      
+server:
+  port: 8080
+  servlet:
+    context-path: /api  
+  compression:
+    enabled: true
+    min-response-size: 1024        
+# ===============================
+# = LOGGING
+# ===============================    
+logging:
+  level:
+    org:
+      flywaydb: debug
